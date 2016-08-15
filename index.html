@@ -9,6 +9,7 @@
 </head>
 <body ng-app="linkValidator">
 
+<!--HEADER/NAVBAR-->
   <md-toolbar>
     <div class="md-toolbar-tools">
       <span flex></span>
@@ -16,6 +17,7 @@
     </div>
   </md-toolbar>
 
+<!--MAIN BODY-->
   <div ng-controller="linkCtrl as LinkCtrl" md-theme="default" layout="row" layout-align="center center">
     <div flex="20"></div>
 
@@ -24,14 +26,15 @@
         <md-input-container class="md-block">
           <input required type="url" placeholder="Enter URL" ng-model="LinkCtrl.SearchURL"/>
         </md-input-container>
+
+        <!-->DISABLE BUTTON IF INPUT IS NOT VALID</!-->
         <md-button ng-disabled="SearchForm.$invalid" class="md-primary" layout-align="center center" ng-click="LinkCtrl.printURL()">Find Links</md-button>
       </form>
     </md-content>
-
     <div flex="20"></div>
-    <div class="linkResult">
 
-    </div>
+<!--LINK RESULTS-->
+    <div class="linkResult"></div>
   </div>
 </body>
 <script src="lib/bower_components/jquery/dist/jquery.min.js"></script>
