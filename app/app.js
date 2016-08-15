@@ -10,10 +10,14 @@ app.controller('linkCtrl',
 
       this.printURL = function(){
 
-        //assign myUrl variable the value of what was typed into the input
+//assign myUrl variable the value of what was typed into the input
         myUrl = this.SearchURL;
         console.log("this is what you typed", myUrl);
 
+//create an empty array to hold the <a> tags that I parse from the document retrieved
+        this.links = [];
+
+//create function to handle an error from the xhr
         function handleError(response){
           if (!angular.isObject(response.data) || !response.data.message)
           {
