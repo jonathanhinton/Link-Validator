@@ -4,4 +4,4 @@ A simple web app to list links from a URL. In order to run this app simply clone
 cd lib
 npm install && bower install
 ```
-I am serving files using html-server. If you have it, run `http-server` from the main directory.
+I am serving files using http-server. If you have it, run `http-server` from the main directory.
