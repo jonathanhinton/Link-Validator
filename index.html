@@ -8,14 +8,22 @@
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body ng-app="linkValidator">
-  <div md-theme="default" layout="row" layout-align="center center">
+
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <span flex></span>
+      <h1>Link Validator</h1>
+    </div>
+  </md-toolbar>
+
+  <div ng-controller="linkCtrl as LinkCtrl" md-theme="default" layout="row" layout-align="center center">
     <div flex="20"></div>
 
     <md-content class="container" layout-padding layout-align="center center" flex="60">
       <md-input-container class="md-block">
-        <input required type="url"  placeholder="Enter URL"/>
+        <input required type="url" placeholder="Enter URL" ng-model="LinkCtrl.SearchURL"/>
       </md-input-container>
-      <md-button class="md-primary" layout-align="center center">Find Links</md-button>
+      <md-button class="md-primary" layout-align="center center" ng-click="LinkCtrl.printURL()">Find Links</md-button>
     </md-content>
 
     <div flex="20"></div>
