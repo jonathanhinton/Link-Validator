@@ -1,1 +1,1 @@
-var app = angular.module('linkValidator', []);
+var app = angular.module('linkValidator', ['ngAnimate', 'ngAria', 'ngRoute', 'ngMaterial']);
