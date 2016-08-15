@@ -8,7 +8,18 @@
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body ng-app="linkValidator">
+  <div md-theme="default" layout="row" layout-align="center center">
+    <div flex="20"></div>
 
+    <md-content class="container" layout-padding layout-align="center center" flex="60">
+      <md-input-container class="md-block">
+        <input required type="url"  placeholder="Enter URL"/>
+      </md-input-container>
+      <md-button class="md-primary" layout-align="center center">Find Links</md-button>
+    </md-content>
+
+    <div flex="20"></div>
+  </div>
 </body>
 <script src="lib/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="lib/bower_components/angular/angular.min.js"></script>
