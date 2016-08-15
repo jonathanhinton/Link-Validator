@@ -27,11 +27,22 @@ app.controller('linkCtrl',
           }
         }
 
+//create function to handle the data from a successful response
         function handleSuccess(response){
-          console.log("response", response);
+          // shorthand for the data coming from the response
+          var doc = response.data;
+
+          //regex was the second thing that came to mind for parsing the document to pull the <a> tags out. I attempted doc.getElementsByTagName('a') first but to no avail. I found this regex on stack overflow. So powerful, I would love to read more about regex.
+          var regex = /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/g;
+          var aTags = doc.match(regex);
+          var linkDiv = angular.element('.linkResult');
+          for (i = 0; i < aTags.length; i++){
+            linkDiv.append(aTags[i] + "<br/>");
+          }
+          console.log("the a tags", aTags);
         }
 
-        //make xhr via Angular's $http.get using myUrl as url...and here is where my trouble begins.  I have been unsuccessful in getting responses from most sites due to Access-Control-Allow-Origin header and Single Origin Policy.  I have been looking for a CORS workaround but have been spinning my wheels thus far.
+//make xhr via Angular's $http.get using myUrl as url...and here is where my trouble begins.  I have been unsuccessful in getting responses from most sites due to Access-Control-Allow-Origin header and Single Origin Policy.  I have been looking for a CORS workaround but have been spinning my wheels thus far.
         $http.get(myUrl).then(handleSuccess, handleError);
 
 
